@@ -6,7 +6,7 @@ from pydantic import BaseModel, Field, ValidationError
 from tools.weather import get_weather_daily_by_city
 from tools.pois import find_city_center, get_pois_nearby
 from tools.maps import haversine_km
-from tools_models_patched import chat_complete
+from tools.tools_models_patched import chat_complete
 
 
 class ItinItem(BaseModel):
@@ -33,7 +33,7 @@ class Plan(BaseModel):
 @dataclass
 class TripState:
     messages: List[Dict[str, str]] = field(default_factory=lambda: [
-        {"role":"system","content": "You are TripSmith, a precise travel-planning agent. Return compact, realistic plans."}
+        {"role":"system","content": "You are Big Ears, a precise travel-planning agent. Return compact, realistic plans."}
     ])
     intent: Dict[str, Any] = field(default_factory=dict)
     plan: Dict[str, Any] | None = None
